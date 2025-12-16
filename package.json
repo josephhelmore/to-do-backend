@@ -8,7 +8,9 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "setup-dbs": "psql -f ./src/db/setup-dbs.sql",
-    "test": "jest"
+    "test": "jest",
+    "test-seed": "npx tsx src/db/seed/test-seed.ts"
+
   },
   "repository": {
     "type": "git",
@@ -24,9 +26,11 @@
   "dependencies": {
     "cor": "^0.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "drizzle-kit": "^0.31.8",
     "drizzle-orm": "^0.45.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "postgres": "^3.4.7"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 /*
 Routes we are going to use;
 GET /tasks - Get all tasks
+GET /tasks/:id - Get a specific task
 POST /tasks - Create a new task
 PATCH /tasks/:id - Update a task
 DELETE /tasks/:id - Delete a task
