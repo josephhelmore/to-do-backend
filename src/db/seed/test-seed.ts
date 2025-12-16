@@ -1,18 +1,12 @@
-import { testTaskData } from "../data/test-data";
-import  {db}  from "../../index";
+import { sql } from "drizzle-orm";
+import { db } from "../../connection";
 import { tasksTable } from "../schema";
+import { testTaskData } from "../data/test-data";
 
-const seedTestData = async () => {
-  try {
+export const seedTestData = async () => {
+  await db.execute(
+    sql`TRUNCATE TABLE ${tasksTable} RESTART IDENTITY CASCADE`
+  );
 
-    await db.delete(tasksTable);
-
-    await db.insert(tasksTable).values(testTaskData);
-
-    console.log("Test data seeded successfully.");
-  } catch (error) {
-    console.error("Error seeding test data:", error);
-  }
+  await db.insert(tasksTable).values(testTaskData);
 };
-
-seedTestData();

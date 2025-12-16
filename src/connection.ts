@@ -1,16 +1,19 @@
-// import { drizzle } from 'drizzle-orm/node-postgres';
-// import dotenv from 'dotenv';
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
+import dotenv from "dotenv";
 
-// const ENV = process.env.NODE_ENV || 'development';
+const ENV = process.env.NODE_ENV || "test";
+dotenv.config({ path: `src/db/.env.${ENV}` });
 
-// dotenv.config({ path: `src/db/.env.${ENV}` });
+const url = process.env.DATABASE_URL;
+
+if (!url) {
+  throw new Error("DATABASE_URL is not set");
+}
+
+const client = postgres(url);
+console.log("Connecting to DB:", process.env.DATABASE_URL);
 
 
-// if (!process.env.DATABASE_URL) {
-//   throw new Error('No DATABASE_URL configured');
-// } else {
-//   console.log('Connected to:', process.env.DATABASE_URL);
-// }
+export const db = drizzle(client);
 
-// const db = drizzle(process.env.DATABASE_URL!);
-// export default db;
