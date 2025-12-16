@@ -1,21 +1,8 @@
-import { fetchTasks, fetchTaskById } from "../models/fetchModels";
 import { Request, Response, NextFunction } from "express";
+import { deleteTaskById } from "../models/deleteModels";
 import { isValidId } from "./controllerErrors";
 
-export const getTasksController = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    const tasks = await fetchTasks();
-    res.status(200).json({ tasks });
-  } catch (err) {
-    next(err);
-  }
-};
-
-export const getTaskByIdController = async (
+export const deleteTaskByIdController = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -27,10 +14,10 @@ export const getTaskByIdController = async (
       return res.status(400).json({ message: "Invalid ID format" });
     }
 
-    const task = await fetchTaskById(taskId);
+    const deleted = await deleteTaskById(taskId);
 
-    if (task) {
-      res.status(200).json({ task });
+    if (deleted) {
+      res.status(200).json({ message: "Task deleted successfully" });
     } else {
       res.status(404).json({ message: "Task not found" });
     }
