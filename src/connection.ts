@@ -3,7 +3,7 @@ import postgres from "postgres";
 import dotenv from "dotenv";
 
 const ENV = process.env.NODE_ENV || "production";
-dotenv.config({ path: `src/db/.env.${ENV}` });
+dotenv.config({ path: `.env.${ENV}` });
 
 const url = process.env.DATABASE_URL;
 

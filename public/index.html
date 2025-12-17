@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management API</title>
+  </head>
+  <body>
+    <h1>Welcome to the Task Management API</h1>
+    <p>
+      This is a nice simple API myself and my partner built, to manage some
+      simple tasks. You can create, read, update and delete tasks. Each task has
+      a title, a completed status, a priority level, and a creation timestamp.
+    </p>
+    <h2>API Endpoints</h2>
+    <ul>
+      <li>GET /api/tasks - Retrieve all tasks</li>
+      <li>GET /api/tasks/:id - Retrieve a specific task by ID</li>
+      <li>POST /api/tasks - Create a new task</li>
+      <li>PUT /api/tasks/:id - Update an existing task by ID</li>
+      <li>DELETE /api/tasks/:id - Delete a task by ID</li>
+    </ul>
+    <h2>Task Object Structure</h2>
+    <pre>
+{
+  "id": "string",          // Unique identifier for the task
+  "title": "string",       // Title of the task
+  "completed": "boolean",  // Completion status of the task
+  "priority": "string",    // Priority level of the task (e.g., "high", "medium", "low")
+  "created_at": "string"   // Timestamp of when the task was created (ISO 8601 format)
+}
+    </pre>
+    <h2>Getting Started</h2>
+  </body>
+</html>

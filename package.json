@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/listen.ts",
+    "dev": " NODE_ENV=test ts-node-dev --respawn src/listen.ts",
     "build": "tsc",
     "start": "node dist/connection.js && node dist/listen.js",
     "setup-dbs": "psql -f ./src/db/setup-dbs.sql",
