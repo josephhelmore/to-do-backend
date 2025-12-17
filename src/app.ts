@@ -5,11 +5,26 @@ import getRoutes from "./routes/routes";
 
 const app = express();
 
-
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 204,
+  })
+);
+
+app.use((req, res, next) => {
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+  next();
+});
+
 app.get("/", (req, res) => {
-  res.redirect("https://josephhelmore.github.io/to-do-backend/")
+  res.redirect("https://josephhelmore.github.io/to-do-backend/");
 });
 
 app.use("/api/", getRoutes);
