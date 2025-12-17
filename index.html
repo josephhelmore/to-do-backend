@@ -3,34 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module"></script>
+
     <title>Task Management API</title>
   </head>
   <body>
-    <h1>Welcome to the Task Management API</h1>
+    <h1 class="title">Welcome to the Task Management API</h1>
     <p>
       This is a nice simple API myself and my partner built, to manage some
-      simple tasks. You can create, read, update and delete tasks. Each task has
-      a title, a completed status, a priority level, and a creation timestamp.
+      simple tasks. <br />
+      You can create, read, update and delete tasks. Each task has a title, a
+      completed status, a priority level, and a creation timestamp.
     </p>
     <h2>API Endpoints</h2>
-    <ul>
-      <li>GET /api/tasks - Retrieve all tasks</li>
-      <li>GET /api/tasks/:id - Retrieve a specific task by ID</li>
-      <li>POST /api/tasks - Create a new task</li>
-      <li>PUT /api/tasks/:id - Update an existing task by ID</li>
-      <li>DELETE /api/tasks/:id - Delete a task by ID</li>
-    </ul>
+    <pre class="example-response">
+
+  GET <span class="string"> "/api/tasks" </span>               <span class="comments"> //Retrieve all tasks</span>
+  GET <span class="string"> "/api/tasks/:id" </span>           <span class="comments"> //Retrieve a specific task by ID</span>
+  POST <span class="string"> "/api/tasks" </span>              <span class="comments"> //Create a new task</span>
+  PUT <span class="string"> "/api/tasks/:id" </span>           <span class="comments"> //Update an existing task by ID</span>
+  DELETE <span class="string"> "/api/tasks/:id" </span>        <span class="comments"> //Delete a task by ID</span>
+    </pre>
     <h2>Task Object Structure</h2>
-    <pre>
+    <pre class="example-response">
 {
-  "id": "string",          // Unique identifier for the task
-  "title": "string",       // Title of the task
-  "completed": "boolean",  // Completion status of the task
-  "priority": "string",    // Priority level of the task (e.g., "high", "medium", "low")
-  "created_at": "string"   // Timestamp of when the task was created (ISO 8601 format)
+  "id": <span class="string">"string"</span>,              <span class="comments">// Unique identifier for the task</span>
+  "title": <span class="string">"string"</span>,           <span class="comments">// Title of the task</span>
+  "completed": <span class="boolean">"boolean"</span>,      <span class="comments">// Completion status of the task</span>
+  "priority": <span class="string">"string"</span>,        <span class="comments">// Priority level of the task (e.g., "high", "medium", "low")</span>
+  "created_at": <span class="string">"string"</span>       <span class="comments">// Timestamp of when the task was created (ISO 8601 format)</span>
 }
     </pre>
-    <h2>Getting Started</h2>
-    <p>Use the API endpoints to manage your tasks. You can create, read, update, and delete tasks using HTTP requests.</p>
   </body>
 </html>

@@ -33,7 +33,8 @@
     "drizzle-orm": "^0.45.1",
     "express": "^5.2.1",
     "jest-extended": "^6.0.0",
-    "postgres": "^3.4.7"
+    "postgres": "^3.4.7",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

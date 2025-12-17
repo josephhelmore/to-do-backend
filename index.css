@@ -1,0 +1,40 @@
+body {
+  background-color: black;
+  color: white;
+  padding-left: 1rem;
+  font-family: "Roboto Mono", sans-serif;
+}
+
+.title {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  font-size: 2.5rem;
+  font-weight: bold;
+
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 20px;
+  background-color: rgb(59, 130, 246);
+}
+
+.example-response {
+  width: fit-content;
+  text-wrap: auto;
+  border-radius: 10px;
+  padding: 2rem;
+  background-color: rgb(2, 0, 48);
+  line-height: 2;
+}
+
+.comments {
+  color: green;
+}
+
+.string {
+  color: orange;
+}
+.boolean {
+  color: rgb(101, 101, 255);
+}
