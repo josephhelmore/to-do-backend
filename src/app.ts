@@ -5,7 +5,13 @@ import getRoutes from "./routes/routes";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["*"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -17,20 +23,23 @@ app.use("/api/", getRoutes);
 app.use((req, res, next) => {
   const error = {
     status: 404,
-    message: 'Path not found'
+    message: "Path not found",
   };
   next(error);
 });
 
-app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  const status = err.status || 500;
-  const message = err.message || 'Internal Server Error';
-  res.status(status).json({ message });
-});
-
-
-
-
+app.use(
+  (
+    err: any,
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+  ) => {
+    const status = err.status || 500;
+    const message = err.message || "Internal Server Error";
+    res.status(status).json({ message });
+  }
+);
 
 /*
 Routes we are going to use;
@@ -40,6 +49,5 @@ POST /tasks - Create a new task
 PATCH /tasks/:id - Update a task
 DELETE /tasks/:id - Delete a task
 */
-
 
 export default app;
