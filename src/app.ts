@@ -12,12 +12,12 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-app.options("*", cors());
+
 
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.redirect("https://josephhelmore.github.io/to-do-backend/");
+  res.redirect("https://josephhelmore.github.io/to-do-backend/")
 });
 
 app.use("/api/", getRoutes);
