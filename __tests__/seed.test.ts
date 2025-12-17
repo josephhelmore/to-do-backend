@@ -1,4 +1,4 @@
-import { describe, test, expect, beforeAll } from "vitest";
+import { describe, test, expect, beforeEach, beforeAll } from "vitest";
 import { testTaskData } from "../src/db/data/test-data";
 import { seedTestData } from "../src/db/seed/test-seed";
 import { db } from "../src/connection";

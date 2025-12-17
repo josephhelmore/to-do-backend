@@ -10,7 +10,7 @@
     "setup-dbs": "psql -f ./src/db/setup-dbs.sql",
     "test": "vitest",
     "test-seed": "npx tsx src/db/seed/test-seed.ts",
-    "drizzle:generate": "drizzle-kit generate:types",
+    "drizzle:generate": "drizzle-kit generate",
     "drizzle:migrate": "drizzle-kit migrate"
   },
   "repository": {

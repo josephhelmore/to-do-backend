@@ -6,5 +6,6 @@ export default defineConfig({
     globals: true,
     include: ["__tests__/**/*.test.ts"],
     typecheck: { tsconfig: "./tsconfig.test.json" },
+    isolate: true,
   },
 });

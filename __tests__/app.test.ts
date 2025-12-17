@@ -4,9 +4,10 @@ import { Task } from "../src/types/index";
 import request from "supertest";
 import app from "../src/app";
 
-beforeAll(() => {
-  return seedTestData();
+beforeAll(async () => {
+  await seedTestData();
 });
+
 
 describe("GET /tasks", () => {
   test("200, get all tasks from the table", async () => {
