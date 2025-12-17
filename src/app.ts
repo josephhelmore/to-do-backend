@@ -8,6 +8,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.redirect("https://josephhelmore.github.io/to-do-backend/");
+});
+
 app.use("/api/", getRoutes);
 
 app.use((req, res, next) => {
