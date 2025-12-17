@@ -5,7 +5,7 @@ export const tasksTable = pgTable("tasks", {
   title: varchar("title", { length: 255 }).notNull(),
   completed: boolean("completed").notNull().default(false),
   priority: varchar("priority", { length: 50 }).notNull().default("high"),
-  createdAt: timestamp("created_at", { withTimezone: true })
+  createdAt: timestamp("createdAt", { withTimezone: true })
     .notNull()
     .defaultNow(),
 });
