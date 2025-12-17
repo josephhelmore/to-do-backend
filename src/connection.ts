@@ -11,7 +11,11 @@ if (!url) {
   throw new Error("DATABASE_URL is not set");
 }
 
-const client = postgres(url);
+const client = postgres(url, {
+  ssl: "require",
+  max: 1,
+});
+
 console.log("Connecting to DB:", process.env.DATABASE_URL);
 
 
