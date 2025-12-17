@@ -18,7 +18,7 @@ describe("Test Data Seeding", () => {
       expect(task.title).toBe(testTaskData[index].title);
       expect(task.completed).toBe(testTaskData[index].completed);
       expect(task.priority).toBe(testTaskData[index].priority);
-      expect(new Date(task.createdAt).toISOString()).toBe(
+      expect(new Date(task.created_at).toISOString()).toBe(
         testTaskData[index].createdAt.toISOString()
       );
     });
@@ -38,7 +38,7 @@ test("each task should have the correct properties", async () => {
     expect(typeof task.title).toBe("string");
     expect(typeof task.completed).toBe("boolean");
     expect(typeof task.priority).toBe("string");
-    expect(task.createdAt).toBeInstanceOf(Date);
+    expect(task.created_at).toBeInstanceOf(Date);
   });
 });
 
@@ -49,7 +49,7 @@ test("Test tasks should have the correct title", async () => {
   expect(title.title).toBe("Buy groceries");
   expect(title.completed).toBe(false);
   expect(title.priority).toBe("high");
-  expect(new Date(title.createdAt).toISOString()).toBe(
+  expect(new Date(title.created_at).toISOString()).toBe(
     new Date("2024-01-01T10:00:00Z").toISOString()
   );
 });

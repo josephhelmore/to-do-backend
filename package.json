@@ -12,7 +12,7 @@
     "test-seed": "npx tsx src/db/seed/test-seed.ts",
     "drizzle:generate": "drizzle-kit generate",
     "drizzle:migrate": "drizzle-kit migrate",
-    "seed-prod": "NODE_ENV=production npm run seed"
+    "drizzle:push": "drizzle-kit push"
   },
   "repository": {
     "type": "git",
