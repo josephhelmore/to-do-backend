@@ -102,3 +102,45 @@ describe("POST /tasks", () => {
     expect(task).toHaveProperty("createdAt");
   });
 });
+describe("PATCH /tasks/:id", () => {
+  test("200, update a specific task by id", async () => {
+    const updatedTask = {
+      title: "Updated task title",
+      completed: true,
+      priority: "high",
+    };
+
+    const {
+      body: { task },
+    } = await request(app).patch("/api/tasks/2").send(updatedTask).expect(200);
+
+    expect(task).toHaveProperty("id", 2);
+    expect(task).toHaveProperty("title", "Updated task title");
+    expect(task).toHaveProperty("completed", true);
+    expect(task).toHaveProperty("priority", "high");
+  });
+  test("404, task not found when an invalid id is provided", async () => {
+    const updatedTask = {
+      title: "Updated task title",
+      completed: true,
+      priority: "high",
+    };
+
+    const {
+      body: { message },
+    } = await request(app)
+      .patch("/api/tasks/9999")
+      .send(updatedTask)
+      .expect(404);
+    expect(message).toBe("Task not found");
+  });
+  test("400, if passed an invalid format id", async () => {
+    const updatedTask = {
+      title: "Updated task title",
+      completed: true,
+      priority: "high",
+    };
+
+    await request(app).patch("/api/tasks/abc").send(updatedTask).expect(400);
+  });
+});

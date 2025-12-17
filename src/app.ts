@@ -10,8 +10,6 @@ app.use(express.json());
 
 app.use("/api/", getRoutes);
 
-
-
 app.use((req, res, next) => {
   const error = {
     status: 404,

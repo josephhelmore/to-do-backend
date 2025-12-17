@@ -9,7 +9,9 @@
     "start": "node dist/server.js",
     "setup-dbs": "psql -f ./src/db/setup-dbs.sql",
     "test": "vitest",
-    "test-seed": "npx tsx src/db/seed/test-seed.ts"
+    "test-seed": "npx tsx src/db/seed/test-seed.ts",
+    "drizzle:generate": "drizzle-kit generate:types",
+    "drizzle:migrate": "drizzle-kit migrate"
   },
   "repository": {
     "type": "git",
