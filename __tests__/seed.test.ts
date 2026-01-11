@@ -33,7 +33,7 @@ test("each task should have the correct properties", async () => {
     expect(task).toHaveProperty("title");
     expect(task).toHaveProperty("completed");
     expect(task).toHaveProperty("priority");
-    expect(task).toHaveProperty("createdAt");
+    expect(task).toHaveProperty("created_at");
     expect(typeof task.id).toBe("number");
     expect(typeof task.title).toBe("string");
     expect(typeof task.completed).toBe("boolean");

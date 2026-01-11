@@ -20,7 +20,7 @@ describe("GET /tasks", () => {
       expect(task).toHaveProperty("id");
       expect(task).toHaveProperty("title");
       expect(task).toHaveProperty("completed");
-      expect(task).toHaveProperty("createdAt");
+      expect(task).toHaveProperty("created_at");
       expect(task).toHaveProperty("priority");
     });
   });
@@ -34,7 +34,7 @@ describe("GET /tasks/:id", () => {
     expect(task).toHaveProperty("id", 1);
     expect(task).toHaveProperty("title");
     expect(task).toHaveProperty("completed");
-    expect(task).toHaveProperty("createdAt");
+    expect(task).toHaveProperty("created_at");
     expect(task).toHaveProperty("priority");
   });
   test("404, task not found when an invalid id is provided", async () => {
@@ -74,7 +74,7 @@ describe("POST /tasks", () => {
     expect(task).toHaveProperty("title", "Test new task");
     expect(task).toHaveProperty("completed", false);
     expect(task).toHaveProperty("priority", "medium");
-    expect(task).toHaveProperty("createdAt");
+    expect(task).toHaveProperty("created_at");
   });
   test("400, missing title in request body", async () => {
     const newTask = {
@@ -100,7 +100,7 @@ describe("POST /tasks", () => {
     expect(task).toHaveProperty("title", "Test task with defaults");
     expect(task).toHaveProperty("completed", false);
     expect(task).toHaveProperty("priority", "medium");
-    expect(task).toHaveProperty("createdAt");
+    expect(task).toHaveProperty("created_at");
   });
 });
 describe("PATCH /tasks/:id", () => {

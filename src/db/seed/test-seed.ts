@@ -8,5 +8,10 @@ export const seedTestData = async () => {
     sql`TRUNCATE TABLE ${tasksTable} RESTART IDENTITY CASCADE`
   );
 
-  await db.insert(tasksTable).values(testTaskData);
+  const dataWithTimestamps = testTaskData.map(task => ({
+    ...task,
+    created_at: task.createdAt
+  }));
+
+  await db.insert(tasksTable).values(dataWithTimestamps);
 };

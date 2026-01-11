@@ -12,7 +12,7 @@ if (!url) {
 }
 
 const client = postgres(url, {
-  ssl: "require",
+  ssl: ENV === "production" ? "require" : false,
   max: 1,
 });
 
