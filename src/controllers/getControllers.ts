@@ -8,7 +8,10 @@ export const getTasksController = async (
   next: NextFunction
 ) => {
   try {
-    const tasks = await fetchTasks();
+    const sort = req.query.sort as string | undefined;
+    const tasks = await fetchTasks(sort);
+
+    
     res.status(200).json({ tasks });
   } catch (err) {
     next(err);

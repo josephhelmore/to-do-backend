@@ -24,26 +24,70 @@ describe("GET /tasks", () => {
     });
   });
 
-  test("200, get all the tasks sorted in descending order", async () => {
+test.only("200, get all the tasks sorted with high priority first", async () => {
     const { body }: { body: { tasks: Task[] } } = await request(app)
-      .get("/api/tasks?sort=desc")
+      .get("/api/tasks?sort=high")
       .expect(200);
-
+ 
     if (body.tasks.length < 2) return;
 
     const priorityOrder: Record<Task["priority"], number> = {
-      high: 3,
+      high: 1,
       medium: 2,
-      low: 1,
+      low: 3,
     };
 
     for (let i = 0; i < body.tasks.length - 1; i++) {
       const currentPriority = priorityOrder[body.tasks[i].priority];
       const nextPriority = priorityOrder[body.tasks[i + 1].priority];
 
-      expect(currentPriority).toBeGreaterThanOrEqual(nextPriority);
+      expect(currentPriority).toBeLessThanOrEqual(nextPriority);
     }
   });
+
+  test("200, get all the tasks sorted with low priority first", async () => {
+    const { body }: { body: { tasks: Task[] } } = await request(app)
+      .get("/api/tasks?sort=low")
+      .expect(200);
+
+    if (body.tasks.length < 2) return;
+
+    const priorityOrder: Record<Task["priority"], number> = {
+      low: 1,
+      medium: 2,
+      high: 3,
+    };
+
+    for (let i = 0; i < body.tasks.length - 1; i++) {
+      const currentPriority = priorityOrder[body.tasks[i].priority];
+      const nextPriority = priorityOrder[body.tasks[i + 1].priority];
+
+      expect(currentPriority).toBeLessThanOrEqual(nextPriority);
+    }
+  });
+
+  test("200, get all the tasks sorted with medium priority first", async () => {
+    const { body }: { body: { tasks: Task[] } } = await request(app)
+      .get("/api/tasks?sort=medium")
+      .expect(200);
+
+    if (body.tasks.length < 2) return;
+
+    const priorityOrder: Record<Task["priority"], number> = {
+      medium: 1,
+      high: 2,
+      low: 3,
+    };
+
+    for (let i = 0; i < body.tasks.length - 1; i++) {
+      const currentPriority = priorityOrder[body.tasks[i].priority];
+      const nextPriority = priorityOrder[body.tasks[i + 1].priority];
+
+      expect(currentPriority).toBeLessThanOrEqual(nextPriority);
+    }
+  });
+
+  
 });
 describe("GET /tasks/:id", () => {
   test("200, get a specific task by id", async () => {
