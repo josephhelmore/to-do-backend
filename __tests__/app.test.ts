@@ -8,7 +8,6 @@ beforeAll(async () => {
   await seedTestData();
 });
 
-
 describe("GET /tasks", () => {
   test("200, get all tasks from the table", async () => {
     const {
@@ -23,6 +22,27 @@ describe("GET /tasks", () => {
       expect(task).toHaveProperty("created_at");
       expect(task).toHaveProperty("priority");
     });
+  });
+
+  test("200, get all the tasks sorted in descending order", async () => {
+    const { body }: { body: { tasks: Task[] } } = await request(app)
+      .get("/api/tasks?sort=desc")
+      .expect(200);
+
+    if (body.tasks.length < 2) return;
+
+    const priorityOrder: Record<Task["priority"], number> = {
+      high: 3,
+      medium: 2,
+      low: 1,
+    };
+
+    for (let i = 0; i < body.tasks.length - 1; i++) {
+      const currentPriority = priorityOrder[body.tasks[i].priority];
+      const nextPriority = priorityOrder[body.tasks[i + 1].priority];
+
+      expect(currentPriority).toBeGreaterThanOrEqual(nextPriority);
+    }
   });
 });
 describe("GET /tasks/:id", () => {

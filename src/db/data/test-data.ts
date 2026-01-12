@@ -2,7 +2,7 @@ export const testTaskData = [
   {
     title: 'Buy groceries',
     completed: false,
-    priority: 'high',
+    priority: 'low',
     createdAt: new Date('2024-01-01T10:00:00Z'),
   },
   {
@@ -14,7 +14,7 @@ export const testTaskData = [
   {
     title: 'Read a book',
     completed: false,
-    priority: 'low',
+    priority: 'high',
     createdAt: new Date('2024-01-01T10:00:00Z'),
   },
 ];

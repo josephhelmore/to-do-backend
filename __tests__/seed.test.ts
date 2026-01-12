@@ -48,7 +48,7 @@ test("Test tasks should have the correct title", async () => {
   const title = tasks[0];
   expect(title.title).toBe("Buy groceries");
   expect(title.completed).toBe(false);
-  expect(title.priority).toBe("high");
+  expect(title.priority).toBe("low");
   expect(new Date(title.created_at).toISOString()).toBe(
     new Date("2024-01-01T10:00:00Z").toISOString()
   );
