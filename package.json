@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": " NODE_ENV=test ts-node-dev --respawn src/listen.ts",
+    "dev": " NODE_ENV=development ts-node-dev --respawn src/listen.ts",
     "build": "tsc",
     "start": "node dist/connection.js && node dist/listen.js",
     "setup-dbs": "psql -f ./src/db/setup-dbs.sql",
@@ -12,7 +12,11 @@
     "test-seed": "npx tsx src/db/seed/test-seed.ts",
     "drizzle:generate": "drizzle-kit generate",
     "drizzle:migrate": "drizzle-kit migrate",
-    "drizzle:push": "drizzle-kit push"
+    "drizzle:push": "drizzle-kit push",
+    "test:migrate": "DATABASE_URL=\"postgres://admin@localhost:5432/to_do_test\" drizzle-kit migrate",
+    "test:full": "npm run test:migrate && npm run test",
+    "test:watch": "vitest --watch",
+    "dev:migrate": "DATABASE_URL=\"postgres://admin@localhost:5432/to_do_development\" drizzle-kit migrate"
   },
   "repository": {
     "type": "git",

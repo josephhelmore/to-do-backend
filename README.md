@@ -9,10 +9,15 @@ This repo is created to create a small backend for a to-do app. It allows you to
 
 
 ## Tech
-The main tech that used;
+The main tech that used in the backend is;
 - Typescript
 - Express
 - Vitest
 
 The main frontend repo can be found [here](https://github.com/Harriet-Blundell/TaskApp). 
 
+
+## How To
+1. Install dependencies using "npm i" 
+2. Create .env files for testing and development. 
+    

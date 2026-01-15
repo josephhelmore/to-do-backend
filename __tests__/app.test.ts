@@ -24,7 +24,7 @@ describe("GET /tasks", () => {
     });
   });
 
-test.only("200, get all the tasks sorted with high priority first", async () => {
+test("200, get all the tasks sorted with high priority first", async () => {
     const { body }: { body: { tasks: Task[] } } = await request(app)
       .get("/api/tasks?sort=high")
       .expect(200);
